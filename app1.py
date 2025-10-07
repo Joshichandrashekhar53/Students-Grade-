@@ -6,7 +6,8 @@ import pandas as pd
 # --- Configuration ---
 DATA_FILE = "grades.json"
 NUM_SUBJECTS = 5
-SUBJECT_NAMES = [f"Subject {i+1}" for i in range(NUM_SUBJECTS)]
+# Updated SUBJECT_NAMES to specific subject titles
+SUBJECT_NAMES = ["Maths", "Science", "History", "Geography", "Marathi"]
 # --- End Configuration ---
 
 # --- Data Persistence Functions (Adapted) ---
