@@ -84,8 +84,9 @@ def add_record_page():
         
         marks = []
         for i in range(NUM_SUBJECTS):
-            mark = st.slider(
-                f"{SUBJECT_NAMES[i]} Mark", 
+            # Changed st.slider to st.number_input as requested
+            mark = st.number_input(
+                f"{SUBJECT_NAMES[i]} Mark (0-100)", 
                 min_value=0, max_value=100, value=75, step=1, 
                 key=f"add_mark_{i}"
             )
@@ -254,4 +255,3 @@ def streamlit_app():
 
 if __name__ == "__main__":
     streamlit_app()
-
