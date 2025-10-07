@@ -1,4 +1,4 @@
-# app.py
+# app.py# app.py
 import streamlit as st
 import pandas as pd
 import os
@@ -13,7 +13,7 @@ def load_data():
         return pd.read_csv(FILE_PATH)
     else:
         return pd.DataFrame(columns=[
-            "Roll", "Subject1", "Subject2", "Subject3", "Subject4", "Subject5", "Total", "Average"
+            "Roll", "Maths", "Science", "History", "Geography", "Marathi", "Total", "Average"
         ])
 
 def save_data(df):
@@ -27,11 +27,11 @@ def add_record(df, roll, marks):
     avg = total / len(marks)
     new_row = {
         "Roll": str(roll),
-        "Subject1": marks[0],
-        "Subject2": marks[1],
-        "Subject3": marks[2],
-        "Subject4": marks[3],
-        "Subject5": marks[4],
+        "Maths": marks[0],
+        "Science": marks[1],
+        "History": marks[2],
+        "Geography": marks[3],
+        "Marathi": marks[4],
         "Total": total,
         "Average": avg
     }
@@ -46,7 +46,7 @@ def update_record(df, roll, marks):
         idx = df[mask].index[0]
         total = sum(marks)
         avg = total / len(marks)
-        df.loc[idx, ["Subject1","Subject2","Subject3","Subject4","Subject5"]] = marks
+        df.loc[idx, ["Maths","Science","History","Geography","Marathi"]] = marks
         df.loc[idx, ["Total","Average"]] = [total, avg]
         save_data(df)
         st.success("✅ Record updated successfully!")
@@ -115,3 +115,5 @@ elif menu == "Download CSV":
     else:
         csv = df.to_csv(index=False)
         st.download_button("Download grades.csv", csv, file_name="grades.csv", mime="text/csv")
+
+
