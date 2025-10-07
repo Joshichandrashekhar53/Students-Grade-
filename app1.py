@@ -170,9 +170,6 @@ def view_all_records_page():
     else:
         st.dataframe(df, use_container_width=True)
         
-        # Display summary statistics
-        st.subheader("Summary Statistics")
-        st.write(df[["Total", "Average"]].describe().T.drop(columns=['count']))
 
 def search_record_page():
     """UI for searching a student record by roll number."""
@@ -257,3 +254,4 @@ def streamlit_app():
 
 if __name__ == "__main__":
     streamlit_app()
+
